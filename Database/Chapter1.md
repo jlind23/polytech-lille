@@ -4,25 +4,28 @@
 
 Ce cours porte sur SQL et les bases de données relationnelles. De ce fait, il est nécessaire de s’interroger sur ce que sont les données. Plusieurs défini tions existent dans la littérature. Dans le cadre de ce cours, nous utilisons la définition suivante. 
 
-Définition 1 (Données) Représentation conventionnelle d’une information en vue de son traitement informatique. - (Larousse, 2019) 
+__Définition 1 (Données)__ Représentation conventionnelle d’une information en vue de son traitement informatique. - (Larousse, 2019) 
 La façon de représenter conventionnellement la donnée va dépendre de la façon dont le concepteur du logiciel manipulant les données structure la don née. On distingue trois types de structurations : les données non structurées, les données semi-structurées et les données structurées. 
 
-Définition 2 (Données non-structurées) Données représentées ou sto ckées sans format prédéfini. 
+__Définition 2 (Données non-structurées)__ Données représentées ou sto ckées sans format prédéfini. 
 Une photo, par exemple, contient des données non structurées. En effet, le sujet de la photo (e.g., une personne, un paysage, une voiture, etc...) n’est pas retrouvable via la structure du fichier contenant la photo. Déterminer les informations sémantiques présentes dans une photo est une tâche simple pour les humains. Il nous suffit de regarder quelques secondes une photo pour comprendre quel est son sujet. Pour un ordinateur, c’est une tâche complexe. 
 
-Définition 3 (Données semi-structurées) Forme de données structurées qui ne sont pas conformes à un modèle de données formel mais qui, néan moins, contiennent des tags permettant de distinguer des éléments séman tiques et créer une hiérarchie dans les données. 
+__Définition 3 (Données semi-structurées)__ Forme de données structurées qui ne sont pas conformes à un modèle de données formel mais qui, néan moins, contiennent des tags permettant de distinguer des éléments séman tiques et créer une hiérarchie dans les données. 
 Une page d’un site internet est créée à partir d’un fichier encodé dans un format de données semi-structurées : l’Hyper-Text Markup Language 
 (HTML). Ce format est un compromis entre un traitement facile pour un ordinateur et la possibilité pour un humain de lire/comprendre les données facilement. 
 
-Définition 4 (Données structurées) Données disposées de façon à être traitées automatiquement et efficacement par un logiciel, mais pas nécessai rement par un humain. Ces données sont conformes à un modèle de données formel. 
+__Définition 4 (Données structurées)__ Données disposées de façon à être traitées automatiquement et efficacement par un logiciel, mais pas nécessai rement par un humain. Ces données sont conformes à un modèle de données formel. 
 Une base de données relationnelle contient des données structurées. C’est à dire que le format des données est entièrement décrit par la base de données et ne contient pas d’ambiguitées (en théorie). Dans le cadre de ce cours, nous allons nous intéresser à un type de base de données manipulant des données structurées. 
 
 ## 1.2 Historique rapide des modèles de données 
 
 Peu de temps après que Alan Turing ait posé les bases de l’informatique moderne, un besoin de structurer et de stocker les données est apparu. La façon de structurer des données est décrite par le modèle de données utilisé. Ci-dessous se trouve un rapide historique des modèles de données. 
-— Hiérarchique (60’) : Les données sont organisées sous la forme d’un arbre. Ce modèle dispose d’un langage de navigation dédié. — Réseau (fin 60’) : Les données sont organisées sous forme d’un graphe dirigé. Ce modèle dispose d’un langage de navigation dédié. — Relationnel (70’) : Données organisées sous forme de tables. Utilise SQL comme langage d’interrogation. Le programmeur n’a pas besoin de connaitre la structure "physique" des données pour les interroger. — Relationnel-objet (90’) : Extension du modèle relationnel avec les concepts venant de la programmation orientée objets. Fournit des types de données plus complexes. 
-— Orienté-objet (fin 90’) : Offre directement une persistance aux ins tances objets. 
-— NoSQL (début 2010) : Modèle emmergant permettant la manipula tion de d’importants volumes de données. Ces systèmes ne respectent dn général pas les standards du modèle relationnel. Cette propriété est issue d’une concession permettant des traitements plus rapides pour certains types d’applications. 
+* Hiérarchique (60’) : Les données sont organisées sous la forme d’un arbre. Ce modèle dispose d’un langage de navigation dédié. 
+* Réseau (fin 60’) : Les données sont organisées sous forme d’un graphe dirigé. Ce modèle dispose d’un langage de navigation dédié. 
+* Relationnel (70’) : Données organisées sous forme de tables. Utilise SQL comme langage d’interrogation. Le programmeur n’a pas besoin de connaitre la structure "physique" des données pour les interroger. 
+* Relationnel-objet (90’) : Extension du modèle relationnel avec les concepts venant de la programmation orientée objets. Fournit des types de données plus complexes. 
+* Orienté-objet (fin 90’) : Offre directement une persistance aux ins tances objets. 
+* NoSQL (début 2010) : Modèle emmergant permettant la manipula tion de d’importants volumes de données. Ces systèmes ne respectent dn général pas les standards du modèle relationnel. Cette propriété est issue d’une concession permettant des traitements plus rapides pour certains types d’applications. 
 
 Dans le cadre de ce cours, nous allons nous intéresser au modèle rela tionnel. Un aspect intéressant de ce modèle de données est qu’il repose sur des bases mathématiques solides affinées depuis plusieurs décennies par la communauté scientifique. 
 Malgré les avancées dans la recherche en base de données, les bases de données relationnelles restent largement utilisées dans l’industrie. De nom breux systèmes de gestions de bases de données relationnelles existent et sont toujours activement développés (e.g., MariaDB, MySQL, Oracle, Post greSQL, ...). 
