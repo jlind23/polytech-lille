@@ -225,7 +225,7 @@ R1(att1,att2,#R2.att1,...)
 
 
 ## Exemple (clé étrangère)
-Reprenons le schéma de relation personne : { _id: INTEGER_, nom : TEXT, prenom : TEXT, age : INTEGER } et imaginons que nous voulons maintenant stocker la ville d'origine de la personne. Cette ville est stockée dans une table `ville` ayant le schéma de relation suivant : { \underline{id: INTEGER}, nom : TEXT }.
+Reprenons le schéma de relation personne : { _id: INTEGER_, nom : TEXT, prenom : TEXT, age : INTEGER } et imaginons que nous voulons maintenant stocker la ville d'origine de la personne. Cette ville est stockée dans une table `ville` ayant le schéma de relation suivant : { <ins>id: INTEGER</ins>, nom : TEXT }.
 
 Il est possible de lier une personne à sa ville d'origine en deux étapes:
 
