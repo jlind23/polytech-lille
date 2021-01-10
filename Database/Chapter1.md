@@ -199,7 +199,7 @@ Contrainte portant sur une relation. Impose l'unicité des valeurs d'un groupe d
 ## Exemple (clé primaire)
 Pour la relation précédente `personne`, s'il n'existe pas 2 personnes ayant le même couple (`nom`,`prenom`), on peut définir une clé primaire sur le groupe d'attribut (`nom`, `prenom`).
 
-# Le schéma de relation est alors noté { \underline{nom : TEXT}, \underline{prenom : TEXT}, age : INTEGER }.
+# Le schéma de relation est alors noté { <ins>nom : TEXT</ins>, <ins>prenom : TEXT</ins>, age : INTEGER }.
 
 ## Questions (clé primaire)
 - Pour la relation `personne`, quelle information (absente de la table en l'état) pourrait être utilisée comme clé primaire ?
@@ -208,7 +208,7 @@ Pour la relation précédente `personne`, s'il n'existe pas 2 personnes ayant le
 ## Remarque (clé primaire)
 En général, on utilise une colonne nommée `id` de type `INTEGER` comme clé primaire pour toutes les tables.
 
-Exemple : personne(\underline{id}, nom, prenom, age)
+Exemple : personne(<ins>id</ins>, nom, prenom, age)
 
 ## Clé étrangère
 
@@ -219,7 +219,7 @@ Contrainte portant sur une relation R1 qui consiste à specifier que les valeurs
 - Une table *peut* avoir *plusieurs* clés étrangères.
 - Par convention, on spécifie les clés étrangères en les préfixant par \# :
 
-R2(\underline{att1},att2,...)
+R2(<ins>att1</ins>,att2,...)
 
 R1(att1,att2,#R2.att1,...)
 
@@ -234,9 +234,9 @@ Il est possible de lier une personne à sa ville d'origine en deux étapes:
 
 La clé étrangère sera alors exprimée comme suit :
 
-ville(\underline{id}, nom)
+ville(<ins>id</ins>, nom)
 
-personne(\underline{id},nom,prenom,age,#ville.id)
+personne(<ins>id</ins>,nom,prenom,age,#ville.id)
 
 ## Question (clé étrangère)
 
@@ -252,7 +252,7 @@ Dans l'activité précédente, y a t-il une contrainte de clé étrangère ?
 
 On souhaite ajouter une table `plat` qui contient les plats qui ont déjà été servis à des personnes. Pour chaque plat, cette table stocke le nom de celui-ci.
 
-plat(\underline{nom})
+plat(<ins>nom</ins>)
 
 On souhaite stocker l'information concernant le fait qu'une personne ait consommé un plat et la date à laquelle cette consommation a eu lieu.
 
@@ -265,7 +265,7 @@ Question : comment stocker l'association plat-personne?
 ## Relation n-m : Solution
 - Utiliser une table intermédiaire pour stocker la consommation d'un plat par une personne :
 
-consommation(\underline{id}, #personne.id,#plat.nom, date)
+consommation(<ins>id</ins>, #personne.id,#plat.nom, date)
 
 ## Exercice 5
 Voir feuille "Entreprise de fabrication et de distribution"
