@@ -1,248 +1,274 @@
-# Chapitre 1 - Modèle relationnel 
 
-## 1.1 Qu’est-ce qu’une donnée ? 
+# _Modèle relationnel_
 
-Ce cours porte sur SQL et les bases de données relationnelles. De ce fait, il est nécessaire de s’interroger sur ce que sont les données. Plusieurs défini tions existent dans la littérature. Dans le cadre de ce cours, nous utilisons la définition suivante. 
+# Qu'est-ce qu'une donnée ?
 
-__Définition 1 (Données)__ Représentation conventionnelle d’une information en vue de son traitement informatique. - (Larousse, 2019) 
-La façon de représenter conventionnellement la donnée va dépendre de la façon dont le concepteur du logiciel manipulant les données structure la don née. On distingue trois types de structurations : les données non structurées, les données semi-structurées et les données structurées. 
+## Définitions
+Plusieurs définitions. En particulier (Larousse, 2019) :
 
-__Définition 2 (Données non-structurées)__ Données représentées ou sto ckées sans format prédéfini. 
-Une photo, par exemple, contient des données non structurées. En effet, le sujet de la photo (e.g., une personne, un paysage, une voiture, etc...) n’est pas retrouvable via la structure du fichier contenant la photo. Déterminer les informations sémantiques présentes dans une photo est une tâche simple pour les humains. Il nous suffit de regarder quelques secondes une photo pour comprendre quel est son sujet. Pour un ordinateur, c’est une tâche complexe. 
+> "Résultats d'observations ou d'expériences faites délibérément ou à l'occasion d'autres tâches et soumis aux méthodes statistiques."
 
-__Définition 3 (Données semi-structurées)__ Forme de données structurées qui ne sont pas conformes à un modèle de données formel mais qui, néan moins, contiennent des tags permettant de distinguer des éléments séman tiques et créer une hiérarchie dans les données. 
-Une page d’un site internet est créée à partir d’un fichier encodé dans un format de données semi-structurées : l’Hyper-Text Markup Language 
-(HTML). Ce format est un compromis entre un traitement facile pour un ordinateur et la possibilité pour un humain de lire/comprendre les données facilement. 
+> "Représentation conventionnelle d'une information en vue de son traitement informatique."
 
-__Définition 4 (Données structurées)__ Données disposées de façon à être traitées automatiquement et efficacement par un logiciel, mais pas nécessai rement par un humain. Ces données sont conformes à un modèle de données formel. 
-Une base de données relationnelle contient des données structurées. C’est à dire que le format des données est entièrement décrit par la base de données et ne contient pas d’ambiguitées (en théorie). Dans le cadre de ce cours, nous allons nous intéresser à un type de base de données manipulant des données structurées. 
+## Structuration des données
+- **Données non-structurée** - Données représentées ou stockées sans format prédéfini.
+- **Données structurée** - Données  disposées de façon à être traitées automatiquement et efficacement par un logiciel, mais pas nécessairement par un humain. Ces données sont conformes à un modèle de données formel.
+- **Données semi-structurée** - Forme de données structurées qui ne sont pas conformes à un modèle de données formel mais qui, néanmoins, contiennent des tags permettant de distinguer des éléments sémantiques et créer une hiérarchie dans les données.
 
-## 1.2 Historique rapide des modèles de données 
+## Historique rapide des modèles de données
+- **Hiérarchique** (60') : Données organisées sous la forme d'un arbre et dispose d'un langage de navigation dédié.
+- **Réseau** (fin 60') : Données organisées sous forme d'un graphe dirigé et dispose d'un langage de navigation dédié.
+- **Relationnel** (70') : Données organisées sous forme de tables. Utilise SQL comme langage d'interrogation. Le programmeur n'a **pas** besoin de connaître la structure "physique" des données pour les interroger.
 
-Peu de temps après que Alan Turing ait posé les bases de l’informatique moderne, un besoin de structurer et de stocker les données est apparu. La façon de structurer des données est décrite par le modèle de données utilisé. Ci-dessous se trouve un rapide historique des modèles de données. 
-* Hiérarchique (60’) : Les données sont organisées sous la forme d’un arbre. Ce modèle dispose d’un langage de navigation dédié. 
-* Réseau (fin 60’) : Les données sont organisées sous forme d’un graphe dirigé. Ce modèle dispose d’un langage de navigation dédié. 
-* Relationnel (70’) : Données organisées sous forme de tables. Utilise SQL comme langage d’interrogation. Le programmeur n’a pas besoin de connaitre la structure "physique" des données pour les interroger. 
-* Relationnel-objet (90’) : Extension du modèle relationnel avec les concepts venant de la programmation orientée objets. Fournit des types de données plus complexes. 
-* Orienté-objet (fin 90’) : Offre directement une persistance aux ins tances objets. 
-* NoSQL (début 2010) : Modèle emmergant permettant la manipula tion de d’importants volumes de données. Ces systèmes ne respectent dn général pas les standards du modèle relationnel. Cette propriété est issue d’une concession permettant des traitements plus rapides pour certains types d’applications. 
+**Modèle étudié dans le cadre de ce cours !**
 
-Dans le cadre de ce cours, nous allons nous intéresser au modèle rela tionnel. Un aspect intéressant de ce modèle de données est qu’il repose sur des bases mathématiques solides affinées depuis plusieurs décennies par la communauté scientifique. 
-Malgré les avancées dans la recherche en base de données, les bases de données relationnelles restent largement utilisées dans l’industrie. De nom breux systèmes de gestions de bases de données relationnelles existent et sont toujours activement développés (e.g., MariaDB, MySQL, Oracle, Post greSQL, ...). 
+- **Relationnel-objet** (90') : Extension du modèle relationnel avec les concepts venant de la programmation orienté objets. Types de données plus complexe, etc.
+- **Orienté-objet** (fin 90') : Offre directement une persistance aux instances objets.
 
-## 1.3 Découverte du modèle relationnel 
+[//]: # Source: https://www.fing.edu.uy/inco/grupos/csi/esp/Cursos/cursos_act/2000/DAP_DisAvDB/documentacion/OO/Evol_DataModels.html
 
-Cette activité a pour but de vous familiariser avec les concepts du modèle relationel. Elle peut être effectuée seul ou par groupe de deux personnes. 
+# Activité
 
-### 1.3.1 Contexte 
+## Contexte
+Un mail a été envoyé à 15 de vos contacts afin de connaître leur boisson préférée dans le but d'organiser une soirée entre amis.
 
-Un e-mail a été envoyé à 15 de vos contacts afin de connaitre leur boisson préférée dans le but d’organiser une soirée entre amis. 
+## Le mail
 
+> *De:* julien
+>
+> *À:* timothee.lafontaine, arlette.beland, anais.pichette, [...]
+>
+> *Sujet:* Donnez moi vos préférences en boissons !
+>
+> Bonjour les amis,
+>
+> Dans le cadre de la soirée de la semaine prochaine j'aimerais connaître votre boisson préférée.
+>
+> Pouvez-vous, s'il vous plait, structurer votre réponse comme suit :
+>
+> Ma boisson préférée est: XXX
+>
+> Un grand merci d'avance.
+>
+> Julien
+>
 
-| De : julien |
-| ----- |
-| À : timothee.lafontaine, arlette.beland, anais.pichette, [...] Sujet : Donnez moi vos préférences en boissons ! |
-| Bonjour les amis, Dans le cadre de la soirée de la semaine prochaine, j’aimerais connaître votre boisson préférée. Pouvez-vous, s’il vous plait, structurer votre réponse comme suit : Ma boisson préférée est : XXX Un grand merci d’avance. Julien |
+## Exercice 1
 
-
-Les réponses à ce mail sont disponibles en annexe A. 
-
-### 1.3.2 Structurons les données 
-
-Afin d’y voir un peu plus clair dans les réponses de nos invités, nous voulons stocker leurs préférences dans un tableau. Pour se faire, lisez les
-mails des invités et créez un tableau qui regroupe les informations suivantes : prénom, nom, préférence. La préférence est le nom de la boisson préférée de l’invité. 
+Afin d'y voir un peu plus clair dans les réponses de nos invités, nous voulons stocker leurs préférences dans un tableau. Pour se faire, lisez les mails des invités et créez un tableau qui regroupe les informations suivantes : prénom, nom, préférence. La préférence étant le nom de la boisson préférée de l'invité.
 
 | Nom | Prénom | Préférence |
-| --- | --- | --- |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
-| ... | ... | ... |
+|:---:|:------:|:----------:|
+| ... |  ...   | ...        |
+| ... |  ...   | ...        |
+| ... |  ...   | ...        |
+| ... |  ...   | ...        |
 
-Table 1.1 – Tableau attendu pour stocker les données. 
+## Exercice 2
 
-### 1.3.3 Coût de la soirée 
+De plus, nous voudrions stocker dans cette table le **prix unitaire** de chacune de ces boissons.
 
-Maintenant que nous avons un aperçu des préférences des invités, nous voulons estimer le coût total de la soirée. Pour se faire, il serait judicieux de stocker le prix unitaire de chacune de ces boissons. Ajoutez une colonne à votre tableau afin de stocker cette nouvelle information. 
-— Le prix unitaire d’un cola est de 1.5e ; 
-— Le prix unitaire d’une bière est de 2e ; 
-— Le prix unitaire d’un verre de vin est de 2e et ; 
-— Le prix unitaire d’une limonade est de 1.5e. 
+- Ajoutez une colonne à votre tableau afin de stocker celui-ci.
+	+ Le prix unitaire d'un cola est de 1.5e ;
+	+ celui d'une bière est de 2e ;
+	+ celui d'un verre de vin est de 2e et ;
+	+ celui d'une limonade est de 1.5e.
 
 | Nom | Prénom | Préférence | Prix unitaire |
-| --- | --- | --- | --- |
-| ... | ... | ... | ... |
-| ... | ... | ... | ... |
-| ... | ... | ... | ... |
-| ... | ... | ... | ... |
+|:---:|:------:|:----------:|:-------------:|
+| ... |  ...   | ...        | ...           |
+| ... |  ...   | ...        | ...           |
+| ... |  ...   | ...        | ...           |
+| ... |  ...   | ...        | ...           |
 
-Table 1.2 – Nouveau tableau attendu pour stocker les données. 
+## Exercice 3
 
-### 1.3.4 Une erreur fortuite 
+Oups, malheureusement, une erreur s'est glissée dans la consigne précédente. Le prix unitaire d'un verre de limonade est erroné. En réalité, un verre de limonade coûte 1.7e.
 
-Malheureusement, une erreur s’est glissée dans la consigne précédente. Le prix unitaire d’un verre de limonade est erroné. En réalité, un verre de limonade coûte 1,7e. Mettez à jour le tableau afin de prendre en compte cette information. 
-— Qu’est-ce qui est génant dans la mise à jour de cette infor mation ? 
-— Que peut-on faire pour palier à ce problème ?
+- Mettez à jour le tableau afin de prendre en compte cette information.
+- Qu'est-ce qui est gênant dans la mise à jour de cette information ?
+- Que peut-on faire pour palier à ce problème ?
 
-### 1.3.5 Vers une meilleure structuration 
+## Exercice 4
 
-Selon nos observations lors de l’étape précédente, la structuration des données n’est pas optimale. En effet, mettre à jour le prix d’une boisson est fastidieux. Restructurez les données en deux tables : personne et boisson. 
-— Qu’implique l’utilisation d’une table auxilliaire pour stocker les boissons préférées sur les données de la table boisson ? 
-— Et sur les données de la table personne ? 
+Restructurez les données en deux tables : *personne* et *boisson*.
 
-## 1.4 Le modèle relationnel 
+- Qu'implique l'utilisation d'une table auxiliaire pour stocker les boissons préférées sur les données de la table *boisson* ?
+- Et sur les données de la table *personne* ?
 
-Maintenant que nous avons une intuition concernant ce qu’est une base de données relationelle, il est temps de définir explicitement chaque concept. 
+# Le modèle relationnel
 
-### 1.4.1 Base de données d’exemple 
+## Attribut
 
-Pour la suite de ce chapitre, la base de données ci-dessous (Table 1.3 et Table 1.4) sera utilisée comme exemple principal. 
-Id 
-Nom 
-Prénom 
-#boisson.Id
+### Définition :
+Colonne nommée d'une table. Le nom de chaque attribut dans une relation est unique au sein de cette relation.
+
+Chaque attribut est mono-valué, c'est à dire qu'il ne peut contenir qu'une valeur atomique et pas une collection de valeurs.
+
+### Exemple :
+- Nom est un attribut de la table personne vue précédemment.
+
+### Question :
+- Quels sont les autres attributs des tables `personne` et `boisson` ?
+
+| Nom | Prénom | Préférence |
+|:---:|:------:|:----------:|
+
+| Dénomination | Prix unitaire |
+|:------------:|:-------------:|
+
+## Domaine
+### Définition :
+Ensemble de valeurs caractérisées par un nom. Similaire au type d'une variable dans un langage de programmation.
+
+### Exemples :
++ Le domaine MONEY représente des nombres à deux décimales, il est utilisé pour les calculs concernant l'argent (`1.05`, `200.00`, `-18.45`, etc... mais pas "Jean", `3.1415`, etc...)
++ Le domaine DATE représente les dates du calendrier. (e.g. `25/12/2018`, etc... mais pas `1.05`, `"Jean"`, etc...)
+
+### Questions :
+
++ Quel est le domaine de la colonne `prix unitaire` dans l'activité précédente ?
+
+| Dénomination | Prix unitaire |
+|:------------:|:-------------:|
+
+## Schéma de relation
+
+### Définition :
+Ensemble d'attributs avec, pour chaque attribut, un domaine qui lui est associé.
+
+### Exemple :
+
+```
+{ nom : TEXT, prenom : TEXT, age : INTEGER }
+```
+
+### Question :
+Quel est le schéma de la table `boisson` de l'activité précédente ?
+
+| Dénomination | Prix unitaire |
+|:------------:|:-------------:|
+
+## Tuple
+### Définition :
+Ensemble d’attributs associés aux valeurs appartenant à leurs domaines respectifs.
+Parfois aussi appelé "ligne" ou "row" en anglais.
+
+### Exemple :
+Pour le schéma de relation précédent, le tuple suivant est possible : { nom : "lind", prenom : "Julien", age: 24 }
+
+### Question :
+Pouvez-vous me donner un tuple de l'une des tables de l'activité précédente ?
+
+## Relation (ou Table)
+
+### Définition :
+Il s'agit d'un schéma de relation et d'un ensemble de tuples associés à un nom.
+
+### Exemple :
+La relation `personne` est définie par :
+
++ Le schéma de relation { nom : TEXT, prenom : TEXT, age : INTEGER }
++ L'ensemble de tuples:
+
+ ```
+{
+{ nom : "lind", prenom : "Julien", age : 24 },
+{ nom : "Larcheveque", prenom : "Guillaume", age : 33 },
+{ nom : "Ferlicot", prenom : "Cyril", age : 25 }
+}
+ ```
+ 
++ Dans le cadre de ce cours nous utilisons la convention suivante : `personne(nom,prenom,age)`
+
+## Contrainte d'intégrité
+### Objectif :
+Assurer la cohérence logique de la base de données.
+
+### Définition :
+Assertion vérifiée par les données de la base à tout moment.
+
+## Clé primaire
+
+### Définition :
+Contrainte portant sur une relation. Impose l'unicité des valeurs d'un groupe d'attributs (la clé).
+
+- La contrainte de clé primaire permet de s'assurer que chaque ligne est identifiable de façon unique dans la table.
+- Par convention, les attributs concernés par la contrainte de clé primaire seront soulignés dans le schéma de relation.
+
+## Exemple (clé primaire)
+Pour la relation précédente `personne`, s'il n'existe pas 2 personnes ayant le même couple (`nom`,`prenom`), on peut définir une clé primaire sur le groupe d'attribut (`nom`, `prenom`).
+
+# Le schéma de relation est alors noté { \underline{nom : TEXT}, \underline{prenom : TEXT}, age : INTEGER }.
+
+## Questions (clé primaire)
+- Pour la relation `personne`, quelle information (absente de la table en l'état) pourrait être utilisée comme clé primaire ?
+- Dans l'activité précédente, quel(s) attribut(s) de quelles tables ont une contrainte de clé primaire ?
+
+## Remarque (clé primaire)
+En général, on utilise une colonne nommée `id` de type `INTEGER` comme clé primaire pour toutes les tables.
+
+Exemple : personne(\underline{id}, nom, prenom, age)
+
+## Clé étrangère
+
+### Définition :
+Contrainte portant sur une relation R1 qui consiste à specifier que les valeurs d'un groupe d'attributs sont *un sous ensemble* des valeurs du groupe d'attributs relatif à la clé primaire d'une relation R2.
+
+- Les valeurs des attributs de la clé étrangère dans un tuple de R1 apparaissent donc comme valeurs des attributs de la clé primaire de R2.
+- Une table *peut* avoir *plusieurs* clés étrangères.
+- Par convention, on spécifie les clés étrangères en les préfixant par \# :
+
+R2(\underline{att1},att2,...)
+
+R1(att1,att2,#R2.att1,...)
 
 
+## Exemple (clé étrangère)
+Reprenons le schéma de relation personne : { _id: INTEGER_, nom : TEXT, prenom : TEXT, age : INTEGER } et imaginons que nous voulons maintenant stocker la ville d'origine de la personne. Cette ville est stockée dans une table `ville` ayant le schéma de relation suivant : { \underline{id: INTEGER}, nom : TEXT }.
 
+Il est possible de lier une personne à sa ville d'origine en deux étapes:
 
+1. Ajouter un attribut `ville.id` au schéma de relation `personne`.
+2. Ajouter une clé étrangère sur le groupe d'attributs composé de (`ville.id`) de la table `personne` qui référence la clé primaire de la table `ville`.
 
+La clé étrangère sera alors exprimée comme suit :
 
+ville(\underline{id}, nom)
 
+personne(\underline{id},nom,prenom,age,#ville.id)
 
-1 
-2 
-3 
-4 
-5 
-6 
-7 
-8 
-9 
-10 
-11 
-12 
-13 
-14 
-15 
-‘Timothée’ ‘Arlette’ 
-‘Anaïs’ 
-‘Éric’ 
-‘Bruno’ 
-‘Felicienne’ ‘Simone’ 
-‘Hamilton’ 
-‘Yvette’ 
-‘Théophile’ ‘Hugues’ 
-‘Florence’ 
-‘Hilaire’ 
-‘Suzette’ 
-‘Louis’ 
-‘Lafontaine’ ‘Béland’ 
-‘Pichette’ 
-‘Ratté’ 
-‘Aubé’ 
-‘Cloutier’ 
-‘Bourget’ 
-‘Camus’ 
-‘Bérard’ 
-‘Allain’ 
-‘Laisné’ 
-‘Verreau’ 
-‘Ouellet’ 
-‘Lampron’ 
-‘Déziel’ 
-3 
-4 
-2 
-1 
-4 
-1 
-1 
-1 
-2 
-4 
-1 
-4 
-1 
-3 
-4
+## Question (clé étrangère)
 
+Dans l'activité précédente, y a t-il une contrainte de clé étrangère ?
 
-Table 1.3 – Table personne. 
-1.4.2 Les concepts du modèle relationnel 
-Le modèle relationnel est construit à partir de 8 concepts. Dans cette sec tion, nous allons poser les définitions de ces concepts et les illustrer concrê-
-Id 
-Dénomination 
-Prix unitaire
+| Nom | Prénom | Préférence |
+|:---:|:------:|:----------:|
 
+| Dénomination | Prix unitaire |
+|:------------:|:-------------:|
 
+## Relation n-m
 
+On souhaite ajouter une table `plat` qui contient les plats qui ont déjà été servis à des personnes. Pour chaque plat, cette table stocke le nom de celui-ci.
 
+plat(\underline{nom})
 
+On souhaite stocker l'information concernant le fait qu'une personne ait consommé un plat et la date à laquelle cette consommation a eu lieu.
 
-1 
-2 
-3 
-4 
-‘limonade’ 
-‘bière’ 
-‘cola’ 
-‘vin’ 
-1,70 
-2,00 
-1,50 
-2,00
+Question : comment stocker l'association plat-personne?
 
+## Relation n-m : Observations
+- Un plat peut avoir été consommé par plusieurs personnes (`n` personnes)
+- Une personne peut avoir consommé plusieurs plats (`m` plats)
 
-Table 1.4 – Table boisson. 
-tement. 
-Définition 5 (Attribut) Colonne nommée d’une table. Le nom de chaque attribut dans une relation est unique au sein de celle-ci. Chaque attribut est mono-valué, c’est à dire qu’il ne peut contenir qu’une valeur atomique et pas une collection de valeurs. 
-Dans la base de données d’exemple, Nom est un attribut de la table personne. 
-Quels sont les autres attributs des tables personne et boisson ? 
-Définition 6 (Domaine) Ensemble de valeurs caractérisées par un nom. Similaire au type d’une variable dans un langage de programmation. 
-Par exemple, le domaine MONEY représente des nombres à deux dé cimales, il est utilisé pour les calculs concernant l’argent (1.05, 200.00, -18.45, etc... mais pas ‘Jean’, 3.1415, etc...). 
-Un autre exemple est le domaine DATE qui représente les dates du ca lendrier. (e.g. 25/12/2018, etc... mais pas 1.05, ‘Jean’, etc...) 
-Quel est le domaine de la colonne prix unitaire dans la base de données d’exemple ? 
-Définition 7 (Schéma de relation) Ensemble d’attributs avec, pour chaque attribut, un domaine qui lui est associé. 
-Par exemple, dans la base de données d’exemple, le schéma de la table boisson est : { Id : INTEGER, Dénomination : TEXT, Prix Unitaire : MONEY } 
-Quel est le schéma de la table personne de l’activité précédente ?
-1.4. LE MODÈLE RELATIONNEL 13 
-Définition 8 (Tuple) Ensemble d’attributs associés aux valeurs apparte nant à leurs domaines respectifs. Aussi appelé “ligne” ou “row” en anglais. 
-Pour le schéma de la table boisson, le tuple suivant est possible : { Id : 1, Dénomination : ‘limonade’, Prix Unitaire : 1,70 } 
-Pouvez-vous donner un tuple de la table personne ? 
-Définition 9 (Relation) Il s’agit d’un schéma de relation et d’un ensemble de tuples associés à un nom. Aussi appelé “table”. 
-Dans la base de données d’exemple, la relation boisson est définie par : 
-1. Le schéma de relation 
-{ Id : INTEGER, Dénomination : TEXT, Prix Unitaire : MONEY } 
-2. L’ensemble de tuples : 
-{ 
-{ Id : 1, prenom : ‘limonade’, Prix Unitaire : 1,70 }, { Id : 2, prenom : ‘bière’, Prix Unitaire : 2,00 }, { Id : 3, prenom : ‘cola’, Prix Unitaire : 1,50 }, { Id : 4, prenom : ‘vin’, Prix Unitaire : 2,00 } 
-} 
-Dans le cadre de ce cours nous utilisons la convention suivante pour référer à une table : nom_de_la_table(attributs). Par exemple, pour la table boisson : boisson(Id,Dénomination,Prix Unitaire). 
-Pouvez-vous donner le schéma et l’ensemble des tuples de la table personne ? 
-Définition 10 (Contrainte d’intégrité) Assertion vérifiée par les don nées de la base à tout moment. L’objectif des contraintes d’intégrité est d’as surer la cohérence logique de la base de données. 
-Définition 11 (Clé primaire) Contrainte portant sur une relation. Im pose l’unicité des valeurs d’un groupe d’attributs (la clé). 
-— La contrainte de clé primaire permet de s’assurer que chaque ligne est identifiable de façon unique dans la table. 
-— Par convention, les attributs concernés par la contrainte de clé pri maire seront soulignés dans le schéma de relation.
-Serait-il judicieux de choisir le couple de colonnes (Nom, Prénom) comme clé primaire de la table personne ? Pourquoi ? Quelle autre information relative à une personne (absente de la table en l’état) pourrait être utilisée comme clé primaire ? 
-Quel(s) attribut(s) de la table boisson ont une contrainte de clé primaire ? Justifiez votre réponse. 
-En général, pour chaque table, on utilise une colonne nommée Id de type INTEGER comme clé primaire. 
-En extension de la convention de notation décrite précédemment, on spécifie qu’un ou plusieurs attributs sont soumis à une clé primaire en les soulignant. Par exemple, pour la table boisson, Id est souligné : boisson(Id,Dénomination,Prix Unitaire). 
-Définition 12 (Clé étrangère) Contrainte portant sur une relation R1 qui consiste à specifier que les valeurs d’un groupe d’attributs sont un sous ensemble des valeurs du groupe d’attributs relatif à la clé primaire d’une relation R2. 
-— Les valeurs des attributs de la clé étrangère dans un tuple de R1 ap paraissent donc comme valeurs des attributs de la clé primaire de R2. — Une table peut avoir plusieurs clés étrangères. 
-— Par convention, on spécifie les clés étrangères en les préfixant par # : R2(att1,att2,...) 
-R1(att1,att2,#R2.att1,...) 
-Reprenons le schéma de relation personne : { id: INTEGER, nom : TEXT, prenom : TEXT, age : INTEGER } et imaginons que nous voulons stocker la ville d’origine de la personne. Cette ville est stockée dans une table ville ayant le schéma de relation suivant : { id: INTEGER, nom : TEXT } 
-Il est possible de lier une personne à sa ville d’origine en deux étapes : 1. Ajouter un attribut ville.id au schéma de relation personne. 2. Ajouter une clé étrangère sur le groupe d’attributs composé de (ville.id) 
-de la table personne qui fait référence à la clé primaire de la table ville. 
-La clé étrangère sera alors exprimée comme suit : 
-ville(id, nom) 
-personne(id,nom,prenom,age,#ville.id) 
-Dans la base de données d’exemple, quelle est la contrainte de clé étrangère entre personne et boisson ?
-1.4. LE MODÈLE RELATIONNEL 15 
-1.4.3 Relation n-m 
-On souhaite ajouter une table plat qui contient les plats qui ont déjà été servis à des personnes. Pour chaque plat, cette table stock le nom de celui-ci. plat(nom) 
-On souhaite stocker les plats consommés par chaque personne et leurs dates de consommation. 
-Nous pouvons observer que : 
-— Un plat peut avoir été consommé par plusieurs personnes (n per sonnes). 
-— Une personne peut avoir consommé plusieurs plats (m plats). 
-Quelle(s) modification(s) apporter au schéma relationel pour sto cker la relation entre plat et personne ?
+## Relation n-m : Solution
+- Utiliser une table intermédiaire pour stocker la consommation d'un plat par une personne :
+
+consommation(\underline{id}, #personne.id,#plat.nom, date)
+
+## Exercice 5
+Voir feuille "Entreprise de fabrication et de distribution"
+
+## Avant de partir
+Quels sont les concepts de base du modèle relationnel ?
