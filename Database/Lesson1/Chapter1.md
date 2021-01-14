@@ -31,6 +31,7 @@ Plusieurs définitions. En particulier (Larousse, 2019) :
 
 ## Contexte
 Un mail a été envoyé à 15 de vos contacts afin de connaître leur boisson préférée dans le but d'organiser une soirée entre amis.
+[Activite1-emails.md]: Contenu des emails
 
 ## Le mail
 
@@ -268,7 +269,7 @@ Question : comment stocker l'association plat-personne?
 consommation(<ins>id</ins>, #personne.id,#plat.nom, date)
 
 ## Exercice 5
-Voir feuille "Entreprise de fabrication et de distribution"
+Voir feuille [Entreprise-de-fabrication-et-de-distribution.md]: Entreprise de fabrication et de distribution.	
 
 ## Avant de partir
 Quels sont les concepts de base du modèle relationnel ?
