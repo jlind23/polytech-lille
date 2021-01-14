@@ -25,13 +25,13 @@ Plusieurs définitions. En particulier (Larousse, 2019) :
 - **Relationnel-objet** (90') : Extension du modèle relationnel avec les concepts venant de la programmation orienté objets. Types de données plus complexe, etc.
 - **Orienté-objet** (fin 90') : Offre directement une persistance aux instances objets.
 
-[//]: # Source: https://www.fing.edu.uy/inco/grupos/csi/esp/Cursos/cursos_act/2000/DAP_DisAvDB/documentacion/OO/Evol_DataModels.html
+[Source](https://www.fing.edu.uy/inco/grupos/csi/esp/Cursos/cursos_act/2000/DAP_DisAvDB/documentacion/OO/Evol_DataModels.html)
 
 # Activité
 
 ## Contexte
 Un mail a été envoyé à 15 de vos contacts afin de connaître leur boisson préférée dans le but d'organiser une soirée entre amis.
-[Activite1-emails.md]: Contenu des emails
+[Contenu des emails](Activite1-emails.md)
 
 ## Le mail
 
@@ -269,7 +269,7 @@ Question : comment stocker l'association plat-personne?
 consommation(<ins>id</ins>, #personne.id,#plat.nom, date)
 
 ## Exercice 5
-Voir feuille [Entreprise-de-fabrication-et-de-distribution.md]: Entreprise de fabrication et de distribution.	
+Voir feuille [Entreprise de fabrication et de distribution.](Entreprise-de-fabrication-et-de-distribution.md)
 
 ## Avant de partir
 Quels sont les concepts de base du modèle relationnel ?
