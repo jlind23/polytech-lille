@@ -1,3 +1,6 @@
+# À ajouter dans le Bashrc de votre compte
+export PGHOST=serveur-etu.polytech-lille.fr                       (à placer dans ~/.bashrc)
+
 # Creation d'une base de donnée
 createdb <dbname> -U <username>
   
