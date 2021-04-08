@@ -1,3 +1,9 @@
+# Creation d'une base de donnée
+createdb <dbname> -U <username>
+  
+# Suppression de la base
+dropdb <dbname> -U <username>
+
 # Correction exercice DDL - "Entreprise de fabrication et de distribution"
 ```sql
 CREATE TABLE produit(
