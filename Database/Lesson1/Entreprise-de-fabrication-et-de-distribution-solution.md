@@ -13,12 +13,12 @@ Donnez les relations ainsi que les contraintes de clé primaire et de clé étra
 
 # Solution
 
-produit(\underline{numP},libP,pu)
+produit(<ins>numP</ins>,libP,pu)
 
-depot(\underline{numD})
+depot(<ins>numD</ins>)
 
-stock(\underline{\#numP,\#numD},qtS,qtD)
+stock(<ins>\#numP,\#numD</ins>,qtS,qtD)
 
-client(\underline{numCl}, nom, prenom, ad, ca, red, \#numD)
+client(<ins>numCl</ins>, nom, prenom, ad, ca, red, \#numD)
 
-commande(\underline{numCo}, dateC, \#numCl, \#numP, qtC)
+commande(<ins>numCo</ins>, dateC, \#numCl, \#numP, qtC)
