@@ -7,6 +7,9 @@ createdb dbname -U username
 # Suppression de la base
 dropdb dbname -U username
 
+# Connexion à la base
+psql dbname -U username
+
 # Correction exercice DDL - "Entreprise de fabrication et de distribution"
 ```sql
 CREATE TABLE produit(
