@@ -168,7 +168,7 @@ Quelle requête permet d'insérer Bruno Aube dans la table `personne` en sachant
 
 ```sql
 UPDATE boisson
-SET prixunitaire=1.5
+SET prixunitaire=1.7
 WHERE denomination='Limonade';
 ```
 
