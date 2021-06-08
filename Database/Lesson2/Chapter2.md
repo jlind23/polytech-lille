@@ -102,7 +102,7 @@ CREATE TABLE personne (
 	prenom TEXT,
 	preference TEXT,
 	FOREIGN KEY (preference)
-		REFERENCE boisson(denomination)
+		REFERENCES boisson(denomination)
 );
 ```
 
@@ -117,7 +117,7 @@ CREATE TABLE personne (
 	preference TEXT,
 	marque_preference TEXT,
 	FOREIGN KEY (preference, marque_preference)
-		REFERENCE boisson(denomination, marque)
+		REFERENCES boisson(denomination, marque)
 );
 ```
 
