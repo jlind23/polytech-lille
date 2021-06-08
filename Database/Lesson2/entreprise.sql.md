@@ -2,10 +2,10 @@
 export PGHOST=serveur-etu.polytech-lille.fr                       (à placer dans ~/.bashrc)
 
 # Creation d'une base de donnée
-createdb <dbname> -U <username>
+createdb dbname -U username
   
 # Suppression de la base
-dropdb <dbname> -U <username>
+dropdb dbname -U username
 
 # Correction exercice DDL - "Entreprise de fabrication et de distribution"
 ```sql
