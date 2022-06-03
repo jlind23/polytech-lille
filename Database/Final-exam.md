@@ -21,4 +21,4 @@ Ecrire les requêtes SQL permettant d’obtenir les résultats suivants :
 - Liste des sports ayant besoin de 5 à 10 joueurs
 - Liste des sports pouvant être joués sur plusieurs lieux de pratiques
 - Liste des joueurs ayant pour première lettre de leur nom le 'z'
-- Liste de l'ensemble des joueurs du club de Gravelines
+- Liste de l'ensemble des joueurs des clubs de Gravelines
