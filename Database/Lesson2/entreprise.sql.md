@@ -54,35 +54,5 @@ CREATE TABLE commande(
 );
 
 
-Solution
-
-INSERT INTO produit(numP,libP,pu)
-VALUES (10,'Bois',10);
-
-UPDATE produit
-SET pu='15'
-where libP='Bois';
-
-UPDATE produit
-SET pu=pu*0.25
-where libP='Bois';
-
-DETELE FROM Produit
-WHERE numP=3;
-
-DELETE FROM Produit
-WHERE pu <10;
-
-SELECT nom, prenom
-FROM client;
-
-SELECT libP
-FROM produit
-where pu >30;
-
-SELECT nom, prenom 
-FROM Client
-WHERE client.nom='françois' and ca > 15 000;
-
 
 ```
