@@ -80,7 +80,6 @@ FROM personne, boisson
 WHERE personne.preference = boisson.denomination;
 ```
 
-![cartesian-product-exemple1.pdf](cartesian-product-exemple1.pdf)
 
 ## Jointure - Exemple 2
 Sélectionner le nom de chaque personne dont la boisson préférée coûte plus de 1,5 euro:
@@ -92,7 +91,6 @@ WHERE personne.preference = boisson.denomination
 	AND boisson.prix > 1.5;
 ```
 
-![cartesian-product-exemple1.pdf](cartesian-product-exemple2.pdf)
 
 ## Jointure de tables : Remarque
 Quand **n tables** sont présentes dans la clause `FROM` d'une requête `SELECT`, il faut au minimum **n-1 jointures** séparées par des `AND`.
