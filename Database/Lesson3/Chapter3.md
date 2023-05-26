@@ -29,7 +29,7 @@ ORDER BY column1 [ASC | DESC], column1 [ASC | DESC], ...
 Exemple: Ordonner les personnes par nom de familles puis par prénom si deux noms de famille sont identiques.
 
 ```sql
-SELECT personne.nom personne.prenom
+SELECT personne.nom, personne.prenom
 FROM personne
 ORDER BY personne.nom ASC, personne.prenom ASC;
 ```
@@ -49,7 +49,7 @@ LIMIT <n>
 Exemple: Ordonner les personnes par nom de familles puis par prénom si deux noms de famille sont identiques et ne garder que les 5 premières.
 
 ```sql
-SELECT personne.nom personne.prenom
+SELECT personne.nom, personne.prenom
 FROM personne
 ORDER BY personne.nom ASC, personne.prenom ASC
 LIMIT 5;
